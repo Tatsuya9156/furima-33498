@@ -39,16 +39,16 @@
 
 ## orders テーブル
 
-| Column                  | Type       | Option                         |
-| ----------------------- | ---------- | ------------------------------ |
-| zip                     | string     | null: false                    |
-| prefecture(active_hash) | integer    | null: false                    |
-| city                    | string     | null: false                    |
-| block                   | string     | null: false                    |
-| building                | string     |                                |
-| phone                   | string     | null: false                    |
-| user                    | references | null: false, foreign_key: true |
-| purchase                | references | null: false, foreign_key: true |
+| Column                     | Type       | Option                         |
+| -------------------------- | ---------- | ------------------------------ |
+| zip                        | string     | null: false                    |
+| prefecture_id(active_hash) | integer    | null: false                    |
+| city                       | string     | null: false                    |
+| block                      | string     | null: false                    |
+| building                   | string     |                                |
+| phone                      | string     | null: false                    |
+| user                       | references | null: false, foreign_key: true |
+| purchase                   | references | null: false, foreign_key: true |
 
 ### Association
 
