@@ -12,12 +12,11 @@
 | last_name_kana  | string     | null: false                    |
 | first_name_kana | string     | null: false                    |
 | birth           | date       | null: false                    |
-| order           | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :items
-- has_one :order
+- has_many :order
 
 ## items テーブル
 
@@ -32,26 +31,37 @@
 | ship_date(active_hash)   | integer    | null: false                    |
 | price                    | integer    | null: false                    |
 | user                     | references | null: false, foreign_key: true |
-| order                    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :purchase
 
 ## orders テーブル
 
-| Column                  | Type    | Option      |
-| ----------------------- | ------- | ----------- |
-| zip                     | string  | null: false |
-| prefecture(active_hash) | integer | null: false |
-| city                    | string  | null: false |
-| block                   | string  | null: false |
-| building                | string  |             |
-| phone                   | string  | null: false |
+| Column                  | Type       | Option                         |
+| ----------------------- | ---------- | -----------                    |
+| zip                     | string     | null: false                    |
+| prefecture(active_hash) | integer    | null: false                    |
+| city                    | string     | null: false                    |
+| block                   | string     | null: false                    |
+| building                | string     |                                |
+| phone                   | string     | null: false                    |
+| user                    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :item
+- has_one :purchase
 
+## purchases テーブル
+
+| Column   | Type       | Option                         |
+| -------- | ---------- | ------------------------------ |
+| item     | references | null: false, foreign_key: true |
+| order    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :order
