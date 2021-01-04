@@ -48,11 +48,12 @@
 | building                | string     |                                |
 | phone                   | string     | null: false                    |
 | user                    | references | null: false, foreign_key: true |
+| purchase                | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchase
+- belongs_to :purchase
 
 ## purchases テーブル
 
@@ -64,4 +65,4 @@
 ### Association
 
 - belongs_to :item
-- belongs_to :order
+- has_one :order
