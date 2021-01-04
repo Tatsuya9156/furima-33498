@@ -2,16 +2,18 @@
 
 ## users テーブル
 
-| Column          | Type       | Option                         |
-| --------------- | ---------- | ------------------------------ |
-| nickname        | string     | null: false                    |
-| email           | string     | null: false                    |
-| password        | string     | null: false                    |
-| last_name       | string     | null: false                    |
-| first_name      | string     | null: false                    |
-| last_name_kana  | string     | null: false                    |
-| first_name_kana | string     | null: false                    |
-| birth           | date       | null: false                    |
+| Column               | Type    | Option      |
+| -------------------- | ------- | ----------- |
+| nickname             | string  | null: false |
+| email                | string  | null: false |
+| password             | string  | null: false |
+| last_name            | string  | null: false |
+| first_name           | string  | null: false |
+| last_name_kana       | string  | null: false |
+| first_name_kana      | string  | null: false |
+| birth_y(active_hash) | integer | null: false |
+| birth_m(active_hash) | integer | null: false |
+| birth_d(active_hash) | integer | null: false |
 
 ### Association
 
@@ -40,7 +42,7 @@
 ## orders テーブル
 
 | Column                  | Type       | Option                         |
-| ----------------------- | ---------- | -----------                    |
+| ----------------------- | ---------- | ------------------------------ |
 | zip                     | string     | null: false                    |
 | prefecture(active_hash) | integer    | null: false                    |
 | city                    | string     | null: false                    |
