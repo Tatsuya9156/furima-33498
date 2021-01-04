@@ -57,10 +57,10 @@
 
 ## purchases テーブル
 
-| Column   | Type       | Option                         |
-| -------- | ---------- | ------------------------------ |
-| item     | references | null: false, foreign_key: true |
-| order    | references | null: false, foreign_key: true |
+| Column | Type       | Option                         |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
