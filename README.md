@@ -41,14 +41,14 @@
 
 ## orders テーブル
 
-| Column     | Type    | Option                         |
-| ---------- | ------- | ------------------------------ |
-| zip        | string  | null: false                    |
-| prefecture | string  | null: false                    |
-| city       | string  | null: false                    |
-| block      | string  | null: false                    |
-| building   | string  |                                |
-| phone      | string  | null: false, foreign_key: true |
+| Column                  | Type    | Option      |
+| ----------------------- | ------- | ----------- |
+| zip                     | string  | null: false |
+| prefecture(active_hash) | integer | null: false |
+| city                    | string  | null: false |
+| block                   | string  | null: false |
+| building                | string  |             |
+| phone                   | string  | null: false |
 
 ### Association
 
