@@ -47,12 +47,10 @@
 | block                      | string     | null: false                    |
 | building                   | string     |                                |
 | phone                      | string     | null: false                    |
-| item                       | references | null: false, foreign_key: true |
 | purchase                   | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :item
 - belongs_to :purchase
 
 ## purchases テーブル
