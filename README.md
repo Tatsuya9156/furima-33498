@@ -27,7 +27,7 @@
 | category_id(active_hash)    | integer    | null: false                    |
 | status_id(active_hash)      | integer    | null: false                    |
 | ship_cost_id(active_hash)   | integer    | null: false                    |
-| ship_source_id(active_hash) | integer    | null: false                    |
+| prefecture_id(active_hash)  | integer    | null: false                    |
 | ship_date_id(active_hash)   | integer    | null: false                    |
 | price                       | integer    | null: false                    |
 | user                        | references | null: false, foreign_key: true |
