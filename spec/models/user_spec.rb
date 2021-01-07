@@ -10,37 +10,6 @@ RSpec.describe User, type: :model do
       it 'nicknameとemail、passwordとpassword_confirmation、last_nameとfirst_name、last_name_kanaとfirst_name_kana、birthが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
-        expect(@user).to be_valid
-      end
-      it 'last_nameが全角（漢字）であれば登録できる' do
-        expect(@user).to be_valid
-      end
-      it 'last_nameが全角（ひらがな）であれば登録できる' do
-        @user.last_name = Gimei.name.last.hiragana
-        expect(@user).to be_valid
-      end
-      it 'last_nameが全角（カタカナ）であれば登録できる' do
-        @user.last_name = Gimei.name.last.katakana
-        expect(@user).to be_valid
-      end
-      it 'first_nameが全角（漢字）であれば登録できる' do
-        expect(@user).to be_valid
-      end
-      it 'first_nameが全角（ひらがな）であれば登録できる' do
-        @user.first_name = Gimei.name.first.hiragana
-        expect(@user).to be_valid
-      end
-      it 'first_nameが全角（カタカナ）であれば登録できる' do
-        @user.first_name = Gimei.name.first.katakana
-        expect(@user).to be_valid
-      end
-      it 'last_name_kanaが全角（カタカナ）であれば登録できる' do
-        expect(@user).to be_valid
-      end
-      it 'first_name_kanaが全角（カタカナ）であれば登録できる' do
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録ができないとき' do
