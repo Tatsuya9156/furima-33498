@@ -8,7 +8,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :birth
-    with_options format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
+    with_options format: { with: /\A[ぁ-んァ-ン一-龠々]+\z/ } do
       validates :last_name
       validates :first_name
     end
