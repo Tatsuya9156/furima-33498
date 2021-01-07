@@ -9,4 +9,19 @@ class Item < ApplicationRecord
   belongs_to :ship_cost
   belongs_to :prefecture
   belongs_to :ship_date
+
+
+  with_options presence: true do
+    validates :name
+    validates :description
+    validates :prise
+  end
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :ship_cost_id
+    validates :prefecture_id
+    validates :ship_date_id
+  end
+
 end
