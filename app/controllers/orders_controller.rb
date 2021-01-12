@@ -3,9 +3,7 @@ class OrdersController < ApplicationController
   before_action :find_item, only: [:index, :create]
 
   def index
-    if current_user.id == @item.user_id || Order.find_by(item_id: @item.id)
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id == @item.user_id || Order.find_by(item_id: @item.id)
     @order_address = OrderAddress.new
   end
 
@@ -20,8 +18,11 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def order_address_params
-    params.require(:order_address).permit(:zip, :prefecture_id, :city, :block, :building, :phone).merge(item_id: params[:item_id], user_id: current_user.id, token: params[:token])
+    params.require(:order_address).permit(:zip, :prefecture_id, :city, :block, :building, :phone).merge(
+      item_id: params[:item_id], user_id: current_user.id, token: params[:token]
+    )
   end
 
   def find_item
