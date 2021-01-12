@@ -2,14 +2,19 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    item = FactoryBot.build(:item)
-    user = FactoryBot.build(:user)
+    item = FactoryBot.create(:item)
+    user = FactoryBot.create(:user)
     @order_address = FactoryBot.build(:order_address, item_id: item.id, user_id: user.id)
+    sleep(1)
   end
 
   describe '商品購入' do
     context '商品購入ができるとき' do
       it 'token、zip、prefecture_id、city、block、building、phoneが存在すれば購入できる' do
+        expect(@order_address).to be_valid
+      end
+      it 'buildingが空でも購入できる' do
+        @order_address.building = nil
         expect(@order_address).to be_valid
       end
     end
@@ -27,6 +32,11 @@ RSpec.describe OrderAddress, type: :model do
       end
       it 'zipが半角数字3桁-4桁でないと購入できない' do
         @order_address.zip = '1234-567'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Zip is invalid')
+      end
+      it 'zipがハイフンなしでは購入できない' do
+        @order_address.zip = '1234567'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Zip is invalid')
       end
