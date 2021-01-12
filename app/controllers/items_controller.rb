@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if Order.find_by(item_id: @item.id)
   end
 
   def update
@@ -55,6 +54,6 @@ class ItemsController < ApplicationController
   end
 
   def protect_user
-    redirect_to root_path unless current_user.id == @item.user_id
+    redirect_to root_path if current_user.id != @item.user_id || Order.find_by(item_id: @item.id)
   end
 end
